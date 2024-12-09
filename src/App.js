@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./Components/Navbar";
+import Main_Text from "./Components/Main_Text";
+import Card from "./Components/Card";
+import Card_Data from "./Card_Data";
+
+console.log(Card_Data)
 
 function App() {
+  const cardData = Card_Data.map((data) => {
+    return (
+      <Card
+        key={data.id}
+        data={data}
+        // {...data} => spread syntax, similar to breaking properties in app.js file
+      />
+    )
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <Main_Text /> 
+      {cardData}
     </div>
   );
 }
